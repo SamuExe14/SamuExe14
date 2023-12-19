@@ -36,11 +36,11 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 
 <table>
 <tbody>
-<th>
+<th style="border: 0px;">
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamuExe14&theme=tokyonight&layout=donut&show_icons=true)
 </th>
-<th>
+<th style="border: 0px;">
 
 ![Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=SamuExe14&theme=tokyonight)
 </th>
