@@ -5,6 +5,7 @@
 <img src="https://readme-typing-svg.demolab.com?font=JetBrainsMono+Regular+Bold&duration=2500&pause=500&color=920CF7&random=false&width=435&lines=Front-End+Developer;Leonardi+Samuele+"/>
 </a>
 </p>
+
 **`Digital Craftman`**
 
 **Hi there,**
@@ -26,30 +27,32 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <img align="left" alt="Python" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/c/c-original.svg" />
 <img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
 <img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
+
+<br />
 <br />
 <br />
 
 ## 📊​ Stats
 
-<table border="0px">
-<tbody border="0px">
+<table>
+<tbody>
+<tr>
 <th>
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamuExe14&theme=tokyonight&layout=donut&show_icons=true)
-
 </th>
 <th>
 
 ![Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=SamuExe14&theme=tokyonight)
-
 </th>
-</tbody>
-<tfooter>
+<tr>
+<tc>
 
 ![Activities](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SamuExe14&theme=tokyonight)
-</tfooter>
-
+</tc>
+</tbody>
 </table>
+
 
 ## ✒️​ Contacts​
 
