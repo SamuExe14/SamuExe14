@@ -30,7 +30,7 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <div align="left" >
 
 <table>
-<tr width="40pc">
+<tr>
 <th>
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamuExe14&theme=tokyonight&layout=donut&show_icons=true)
