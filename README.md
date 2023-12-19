@@ -1,13 +1,6 @@
-<style>
-  .frontend{
-    align: center;
-    border: 10px;
-  }
-</style>
-
 # 🔥 SamuExe14
 
-<div class="frontend">
+<div>
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=200&duration=1500&pause=500&color=920CF7&random=false&width=435&height=70&lines=Front-End+Developer;Samuele+Leonardi)](https://git.io/typing-svg)
 
