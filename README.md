@@ -26,10 +26,8 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 
 ## 📊​ Stats
 
-<div align="left" >
-
 <table border="0px">
-<tr border="0px">
+<tbody>
 <th>
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamuExe14&theme=tokyonight&layout=donut&show_icons=true)
@@ -40,15 +38,12 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 ![Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=SamuExe14&theme=tokyonight)
 
 </th>
-</tr>
-<tr border="0px">
+</tbody>
+<tfooter>
 
 ![Activities](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SamuExe14&theme=tokyonight)
-
+</tfooter>
 </table>
-</tr>
-
-</div>
 
 ## ✒️​ Contacts​
 
