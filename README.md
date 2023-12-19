@@ -1,11 +1,10 @@
 # 🔥 SamuExe14
 
-<div>
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=200&duration=1500&pause=500&color=920CF7&random=false&width=435&height=70&lines=Front-End+Developer;Samuele+Leonardi)](https://git.io/typing-svg)
-
-</div>
-
+<p align="center">
+<a href="https://github.com/SamuExe14">
+<img src="https://readme-typing-svg.demolab.com?font=JetBrainsMono+Regular+Bold&duration=2500&pause=500&color=920CF7&random=false&width=435&lines=Front-End+Developer;Leonardi+Samuele+"/>
+</a>
+</p>
 **`Digital Craftman`**
 
 **Hi there,**
@@ -51,7 +50,6 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 </tfooter>
 
 </table>
-
 
 ## ✒️​ Contacts​
 
