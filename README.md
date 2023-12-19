@@ -1,4 +1,17 @@
+<style>
+  .frontend{
+    align: center;
+    border: 10px;
+  }
+</style>
+
 # 🔥 SamuExe14
+
+<div class="frontend">
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=200&duration=1500&pause=500&color=920CF7&random=false&width=435&height=70&lines=Front-End+Developer;Samuele+Leonardi)](https://git.io/typing-svg)
+
+</div>
 
 **`Digital Craftman`**
 
@@ -27,7 +40,7 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 ## 📊​ Stats
 
 <table border="0px">
-<tbody>
+<tbody border="0px">
 <th>
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamuExe14&theme=tokyonight&layout=donut&show_icons=true)
@@ -43,6 +56,7 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 
 ![Activities](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SamuExe14&theme=tokyonight)
 </tfooter>
+
 </table>
 
 ## ✒️​ Contacts​
