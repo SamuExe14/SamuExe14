@@ -1,10 +1,12 @@
 <style>
   table, th, td{
     border:none;
+    border: 0px;
   }
 
   table{
     border-collapse: collapse;
+    border: 0px;
   }
 </style>
 
