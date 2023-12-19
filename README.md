@@ -6,7 +6,6 @@
 
 I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordinary user experience. I'm a student at the `University of Catania` and I'm pursuing my academic path in `CyberSecurity`. I love to actively collaborate with my **colleagues** and contribute to **open-source projects** to broaden my skills and **share my knowledge with the entire world**. I like to think that every problem can be solved with an algorithm and a snippet code.
 
-
 ## ​🧰​ Languages and Tools
 
 <img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/vscode/vscode-original.svg" />
@@ -29,8 +28,8 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 
 <div align="left" >
 
-<table>
-<tr>
+<table border="0px">
+<tr border="0px">
 <th>
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamuExe14&theme=tokyonight&layout=donut&show_icons=true)
@@ -39,13 +38,15 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <th>
 
 ![Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=SamuExe14&theme=tokyonight)
+
 </th>
 </tr>
+<tr border="0px">
 
 ![Activities](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SamuExe14&theme=tokyonight)
+
 </table>
-
-
+</tr>
 
 </div>
 
