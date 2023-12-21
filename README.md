@@ -59,11 +59,11 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 ## ✒️​ Contact me!
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/samuele-domenico-leonardi-52a557242/"><img width="40" alt="LinkedIn" title="LinkedIn" src="https://www.svgrepo.com/show/922/linkedin.svg"/></a>
+  <a href="https://www.linkedin.com/in/samuele-domenico-leonardi-52a557242/"><img width="40" alt="LinkedIn" title="LinkedIn" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"/></a>
   &#8287;&#8287;&#8287;&#8287;
-   <a href="https://www.instagram.com/samu_leonardi/"><img width="40" alt="LinkedIn" title="LinkedIn" src="https://www.svgrepo.com/download/177238/instagram-social-media.svg"/></a>
+   <a href="https://www.instagram.com/samu_leonardi/"><img width="40" alt="Instagram" title="Instagram" src="https://static.cdnlogo.com/logos/i/93/instagram.svg"/></a>
   &#8287;&#8287;&#8287;&#8287;
-  <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRzDfhRmdRHpxNXhgvfFxSvBSdnSbHnNjnfqqTDDsFksxNcvJPDBDNZXCGWllzmVknPjFJNx"><img width="40" alt="LinkedIn" title="LinkedIn" src="https://icon-library.com/images/gmail-icon-black-and-white/gmail-icon-black-and-white-11.jpg"/></a>
+  <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRzDfhRmdRHpxNXhgvfFxSvBSdnSbHnNjnfqqTDDsFksxNcvJPDBDNZXCGWllzmVknPjFJNx"><img width="40" alt="Gmail" title="Gmail" src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_512px.png"/></a>
   &#8287;&#8287;&#8287;&#8287;
 
 </p>
