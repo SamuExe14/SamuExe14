@@ -13,19 +13,34 @@
 I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordinary user experience. I'm a student at the `University of Catania` and I'm pursuing my academic path in `CyberSecurity`. I love to actively collaborate with my **colleagues** and contribute to **open-source projects** to broaden my skills and **share my knowledge with the entire world**. I like to think that every problem can be solved with an algorithm and a snippet code.
 
 ## ​🧰​ Languages and Tools
-
-<img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/vscode/vscode-original.svg" />
+<a href="https://code.visualstudio.com/">
+<img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/vscode/vscode-original.svg"/>
+</a>
+<a href="https://www.linux.it/">
 <img align="left" alt="Linux" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" />
+</a>
+<a href="https://www.typescriptlang.org/">
 <img align="left" alt="TypeScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
+</a>
+<a href="https://angular.io/">
 <img align="left" alt="Angular" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" />
+</a>
+<a href="https://git-scm.com/">
 <img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
+</a>
 <img align="left" alt="HTML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
 <img align="left" alt="CSS" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />
 <img align="left" alt="JavaScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
+<a href="https://nodejs.org/en">
 <img align="left" alt="NodeJS" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+</a>
+<a href="https://www.python.org/">
 <img align="left" alt="Python" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" />
+</a>
 <img align="left" alt="Python" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/c/c-original.svg" />
+<a href="https://github.com/">
 <img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+</a>
 <img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
 
 <br />
@@ -50,6 +65,5 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
   &#8287;&#8287;&#8287;&#8287;
   <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRzDfhRmdRHpxNXhgvfFxSvBSdnSbHnNjnfqqTDDsFksxNcvJPDBDNZXCGWllzmVknPjFJNx"><img width="40" alt="LinkedIn" title="LinkedIn" src="https://icon-library.com/images/gmail-icon-black-and-white/gmail-icon-black-and-white-11.jpg"/></a>
   &#8287;&#8287;&#8287;&#8287;
-
 
 </p>
