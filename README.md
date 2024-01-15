@@ -35,8 +35,8 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <p align="left">
 <a><img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=SamuExe14&theme=tokyonight" alt="Stats">
 </img></a>
-<a><img width="325" src="https://camo.githubusercontent.com/63faa4572c32f83d77ab7e183a6a1c4e8d5b0a45098f297e3738d55954828e12/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170692f746f702d6c616e67732f3f757365726e616d653d53616d754578653134267468656d653d746f6b796f6e69676874266c61796f75743d646f6e75742673686f775f69636f6e733d74727565" alt="Languages">
-</img></a>
+<!-- <a><img width="325" src="https://camo.githubusercontent.com/63faa4572c32f83d77ab7e183a6a1c4e8d5b0a45098f297e3738d55954828e12/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170692f746f702d6c616e67732f3f757365726e616d653d53616d754578653134267468656d653d746f6b796f6e69676874266c61796f75743d646f6e75742673686f775f69636f6e733d74727565" alt="Languages">
+</img></a> -->
 <a><img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SamuExe14&theme=tokyonight" alt="Details">
 </img></a>
 </p>
