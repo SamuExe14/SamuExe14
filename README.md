@@ -26,6 +26,10 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <img align="left" alt="Angular" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" />
 </a>
 <a href="https://git-scm.com/">
+<a href="https://www.docker.com/">
+<img align="left" alt="Docker" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-plain-wordmark.svg">
+</img>
+</a>
 <img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
 </a>
 <img align="left" alt="HTML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
@@ -42,7 +46,6 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
 </a>
 <img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
-
 <br />
 <br />
 
