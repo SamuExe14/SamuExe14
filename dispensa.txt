@@ -1,5 +1,0 @@
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SamuExe14&theme=tokyonight&layout=donut&show_icons=true)
-
-![Stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=SamuExe14&theme=tokyonight)
-
-![Activities](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SamuExe14&theme=tokyonight)
