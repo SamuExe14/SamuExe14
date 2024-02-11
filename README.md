@@ -46,6 +46,15 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
 </a>
 <img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
+<a href="https://www.terraform.io/">
+<img align="left" alt="Terraform" width="30px" style="padding-right:10px;" src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" />
+</a>
+<a href="https://www.mongodb.com">
+<img align="left" alt="Mongo" width="30px" style="padding-right:10px;" src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" />
+</a>
+<a href="https://www.postman.com/">
+<img align="left" alt="Postman" width="30px" style="padding-right:10px;" src="https://www.svgrepo.com/show/354202/postman-icon.svg" />
+</a>
 <br />
 <br />
 
