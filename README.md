@@ -55,6 +55,12 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
 <a href="https://www.postman.com/">
 <img align="left" alt="Postman" width="30px" style="padding-right:10px;" src="https://www.svgrepo.com/show/354202/postman-icon.svg" />
 </a>
+<a href="https://www.greenbone.net/en/">
+<img align="left" alt="Greenbone" width="40px" style="padding-right:10px;" src="https://gdm-catalog-fmapi-prod.imgix.net/ProductScreenshot/8a967022-e41b-4909-8f61-54f262d87d82.png">
+</a>
+<a href="https://www.zabbix.com/">
+<img align="left" alt="Zabbix" width="30px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Zabbix_logo_square.svg/2500px-Zabbix_logo_square.svg.png">
+</a>
 <br />
 <br />
 
@@ -75,6 +81,5 @@ I'm Samuele, a `Junior Front-End Developer` passionate about creating extraordin
   &#8287;&#8287;&#8287;&#8287;
    <a href="https://www.instagram.com/samu_leonardi/"><img width="40" alt="Instagram" title="Instagram" src="https://static.cdnlogo.com/logos/i/93/instagram.svg"/></a>
   &#8287;&#8287;&#8287;&#8287;
-  <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRzDfhRmdRHpxNXhgvfFxSvBSdnSbHnNjnfqqTDDsFksxNcvJPDBDNZXCGWllzmVknPjFJNx"><img width="40" alt="Gmail" title="Gmail" src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_512px.png"/></a>
-  &#8287;&#8287;&#8287;&#8287;
+  
 </p>
