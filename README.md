@@ -13,6 +13,9 @@
 I'm Samuele, a `Junior Front-End Developer` and `DevOps`, passionate about creating extraordinary user experience. I'm a student at the `University of Catania` and I'm pursuing my academic path in `CyberSecurity`. I love to actively collaborate with my **colleagues** and contribute to **open-source projects** to broaden my skills and **share my knowledge with the entire world**. I like to think that every problem can be solved with an algorithm and a snippet code.
 
 ## ​🧰​ Languages and Tools
+<a href="https://www.kali.org/">
+<img align="left" alt="Kali" width="32px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/2048px-Kali-dragon-icon.svg.png">
+</a>
 <a href="https://code.visualstudio.com/">
 <img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/vscode/vscode-original.svg"/>
 </a>
