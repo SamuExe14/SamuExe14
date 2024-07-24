@@ -1,8 +1,8 @@
 # 🔥 SamuExe14
 
-<p align="center">
+<p>
 <a href="https://github.com/SamuExe14">
-<img src="https://readme-typing-svg.demolab.com?font=JetBrainsMono+Regular+Bold&duration=2500&pause=500&color=920CF7&random=false&width=435&lines=Front-End+Developer;Leonardi+Samuele+"/>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrainsMono+Regular+Bold&duration=2500&pause=500&color=920CF7&random=false&width=435&lines=DevOps-Engineer;Leonardi+Samuele+"/>
 </a>
 </p>
 
@@ -63,6 +63,9 @@ I'm Samuele, a `Junior Front-End Developer` and `DevOps`, passionate about creat
 </a>
 <a href="https://www.zabbix.com/">
 <img align="left" alt="Zabbix" width="30px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Zabbix_logo_square.svg/2500px-Zabbix_logo_square.svg.png">
+</a>
+<a href="https://www.jenkins.io/">
+<img align="left" alt="Jenkins" width="30px" style="padding-right:10px;" src="https://www.jenkins.io/images/logos/jenkins/jenkins.svg">
 </a>
 <br />
 <br />
