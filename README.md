@@ -2,7 +2,7 @@
 
 <p>
 <a href="https://github.com/SamuExe14">
-<img src="https://readme-typing-svg.demolab.com/?font=JetBrainsMono+Regular+Bold&duration=2500&pause=500&color=920CF7&random=false&width=435&lines=Dev/Sys-Ops%20Engineer;Leonardi+Samuele+"/>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrainsMono+Regular+Bold&duration=2500&pause=500&color=920CF7&random=false&width=435&lines=DevOps-Engineer;Leonardi+Samuele+"/>
 </a>
 </p>
 
@@ -10,7 +10,7 @@
 
 **Hi there,**
 
-I'm Samuele, a `Dev/Sys Ops Engineer`, passionate about creating extraordinary user experience. I'm a student at the `ITS Steve Jobs Academy` and I'm pursuing my academic path in `Web & CyberSecurity`. I love to actively collaborate with my **colleagues** and contribute to **open-source projects** to broaden my skills and **share my knowledge with the entire world**. I like to think that every problem can be solved with an algorithm and a snippet code.
+I'm Samuele, a `Junior Front-End Developer` and `DevOps`, passionate about creating extraordinary user experience. I'm a student at the `University of Catania` and I'm pursuing my academic path in `CyberSecurity`. I love to actively collaborate with my **colleagues** and contribute to **open-source projects** to broaden my skills and **share my knowledge with the entire world**. I like to think that every problem can be solved with an algorithm and a snippet code.
 
 ## ​🧰​ Languages and Tools
 <a href="https://www.kali.org/">
@@ -28,11 +28,11 @@ I'm Samuele, a `Dev/Sys Ops Engineer`, passionate about creating extraordinary u
 <a href="https://angular.io/">
 <img align="left" alt="Angular" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" />
 </a>
+<a href="https://git-scm.com/">
 <a href="https://www.docker.com/">
 <img align="left" alt="Docker" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-plain-wordmark.svg">
 </img>
 </a>
-<a href="https://git-scm.com/">
 <img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
 </a>
 <img align="left" alt="HTML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
