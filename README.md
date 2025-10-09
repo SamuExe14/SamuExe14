@@ -86,6 +86,10 @@ I'm Samuele, a `Dev/Sys Ops Engineer`, passionate about creating extraordinary u
 <p align="center">
   <a href="https://www.linkedin.com/in/samuele-domenico-leonardi-52a557242/"><img width="40" alt="LinkedIn" title="LinkedIn" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"/></a>
   &#8287;&#8287;&#8287;&#8287;
+
+
+
+  (meglio fuori che dentro)
    <a href="https://www.instagram.com/samu_leonardi/"><img width="40" alt="Instagram" title="Instagram" src="https://static.cdnlogo.com/logos/i/93/instagram.svg"/></a>
   &#8287;&#8287;&#8287;&#8287;
   
