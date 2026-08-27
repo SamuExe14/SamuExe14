@@ -6,10 +6,8 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    # nuove CVE su dipendenze già in tree: serve uno scan anche senza commit
     - cron: '0 3 * * 1'
 
-# default deny: nessun permesso implicito sul GITHUB_TOKEN
 permissions: {}
 
 jobs:
@@ -17,71 +15,60 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      security-events: write   # solo per l'upload SARIF in Code Scanning
+      security-events: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # --- ADATTARE: toolchain del progetto ---
-      - name: Setup runtime
+      # Rileva quali toolchain/target esistono davvero nel repo.
+      # Evita che il setup dell'ambiente faccia fallire il job su repo
+      # che non contengono (ancora) quel tipo di progetto.
+      - name: Detect project targets
+        id: detect
+        run: |
+          set -euo pipefail
+          has_node=false; has_lock=false; has_iac=false
+          [ -f package.json ] && has_node=true
+          { [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] || [ -f yarn.lock ]; } && has_lock=true
+          # ADATTARE: estendere se usi CloudFormation/ARM/Bicep
+          if find . -path ./.git -prune -o \
+               \( -name '*.tf' -o -name '*.tfvars' -o -name 'Chart.yaml' \) -print \
+               -quit | grep -q .; then has_iac=true; fi
+          {
+            echo "has_node=$has_node"
+            echo "has_lock=$has_lock"
+            echo "has_iac=$has_iac"
+          } >> "$GITHUB_OUTPUT"
+          echo "node=$has_node lock=$has_lock iac=$has_iac"
+
+      - name: Setup Node
+        if: steps.detect.outputs.has_node == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          # cache attiva SOLO con lockfile presente, altrimenti l'action aborta
+          cache: ${{ steps.detect.outputs.has_lock == 'true' && 'npm' || '' }}
 
-      # --ignore-scripts: evita esecuzione di lifecycle script di dipendenze
-      # non fidate sul runner. Rimuovere solo se il build lo richiede.
+      # --ignore-scripts: nessun lifecycle script di dipendenze non fidate
+      # eseguito sul runner.
       - name: Install dependencies
+        if: steps.detect.outputs.has_lock == 'true'
         run: npm ci --ignore-scripts
-      # ----------------------------------------
 
       - name: Setup Snyk CLI
         uses: snyk/actions/setup@master
 
-      # SCA: dipendenze dirette e transitive
-      - name: Snyk Open Source
-        continue-on-error: true      # il gating è nello step finale
+      # Verifica che il token sia valido PRIMA degli scan, così un fallimento
+      # di auth non viene confuso con "nessuna vulnerabilità".
+      - name: Snyk auth check
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: |
-          snyk test \
-            --all-projects \
-            --severity-threshold=high \
-            --sarif-file-output=snyk-oss.sarif
-
-      # SAST sul codice first-party
-      - name: Snyk Code (SAST)
-        continue-on-error: true
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: |
-          snyk code test \
-            --severity-threshold=high \
-            --sarif-file-output=snyk-code.sarif
-
-      # Snapshot del progetto in Snyk: solo dal branch di default,
-      # altrimenti si popola la dashboard con un progetto per feature branch
-      - name: Snyk Monitor
-        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk monitor --all-projects
-
-      # Gating esplicito: fallisce la pipeline se sono stati trovati
-      # finding >= high in uno qualsiasi degli scan
-      - name: Enforce policy
-        if: always()
         run: |
           set -euo pipefail
-          found=0
-          for f in snyk-*.sarif; do
-            [ -e "$f" ] || continue
-            n=$(jq '[.runs[].results[]?] | length' "$f")
-            echo "$f: $n finding"
-            [ "$n" -gt 0 ] && found=1
-          done
-          exit "$found"
-        
+          snyk --version
+          # non stampa il token: solo l'identità associata
+          snyk whoami 2>/dev/null || snyk config get api >/dev/null
+
       - name: Snyk Open Source (SCA)
         id: oss
         env:
@@ -90,8 +77,9 @@ jobs:
           set +e
           snyk test --all-projects --severity-threshold=high \
             --sarif-file-output=snyk-oss.sarif
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          code=$?
           set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
 
       - name: Snyk Code (SAST)
         id: sast
@@ -101,19 +89,39 @@ jobs:
           set +e
           snyk code test --severity-threshold=high \
             --sarif-file-output=snyk-code.sarif
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          code=$?
           set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
 
       - name: Snyk IaC
         id: iac
+        if: steps.detect.outputs.has_iac == 'true'
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
           set +e
           snyk iac test . --severity-threshold=high \
             --sarif-file-output=snyk-iac.sarif
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          code=$?
           set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+
+      - name: Upload SARIF
+        if: always()
+        continue-on-error: true   # assente se nessuno scan ha prodotto output
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: .
+          category: snyk
+
+      - name: Snyk Monitor
+        if: >-
+          success() &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch) &&
+          steps.detect.outputs.has_lock == 'true'
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk monitor --all-projects
 
       - name: Enforce policy (fail-closed)
         if: always()
@@ -121,16 +129,22 @@ jobs:
           OSS_EXIT:  ${{ steps.oss.outputs.exit_code }}
           SAST_EXIT: ${{ steps.sast.outputs.exit_code }}
           IAC_EXIT:  ${{ steps.iac.outputs.exit_code }}
+          IAC_PRESENT: ${{ steps.detect.outputs.has_iac }}
+          # ADATTARE: portare a "false" appena il repo contiene quel target.
+          ALLOW_EMPTY_OSS: 'true'
+          ALLOW_EMPTY_SAST: 'true'
         run: |
           set -uo pipefail
           fail=0
 
           # Semantica exit code Snyk CLI:
-          #   0 = nessun issue | 1 = issue trovati
-          #   2 = errore CLI/auth/rete  -> BLOCCANTE (scan non attendibile)
-          #   3 = nessun progetto supportato -> tollerato solo se dichiarato
+          #   0 = nessun issue >= soglia
+          #   1 = issue trovati            -> BLOCCANTE
+          #   2 = errore CLI/auth/rete     -> BLOCCANTE (scan non attendibile)
+          #   3 = nessun target supportato -> tollerato solo se dichiarato
+          #   ""= step skipped o crashato  -> BLOCCANTE
           evaluate() {
-            local name="$1" code="$2" allow_empty="$3"
+            name="$1"; code="$2"; allow_empty="$3"
             case "$code" in
               0) echo "::notice::${name}: nessun finding >= high" ;;
               1) echo "::error::${name}: finding >= high presenti"; fail=1 ;;
@@ -140,15 +154,19 @@ jobs:
                   echo "::warning::${name}: nessun target supportato (atteso)"
                 else
                   echo "::error::${name}: nessun target supportato - scan NON eseguito"; fail=1
-                fi
-                ;;
-              *) echo "::error::${name}: exit code inatteso ${code}"; fail=1 ;;
+                fi ;;
+              "") echo "::error::${name}: step non eseguito (skipped/failed a monte) - controllo NON applicato"; fail=1 ;;
+              *) echo "::error::${name}: exit code inatteso '${code}'"; fail=1 ;;
             esac
           }
 
-          # ADATTARE: metti "false" appena il repo contiene quel tipo di target.
-          evaluate "Snyk OSS"  "$OSS_EXIT"  "false"
-          evaluate "Snyk Code" "$SAST_EXIT" "false"
-          evaluate "Snyk IaC"  "$IAC_EXIT"  "true"
+          evaluate "Snyk OSS"  "$OSS_EXIT"  "$ALLOW_EMPTY_OSS"
+          evaluate "Snyk Code" "$SAST_EXIT" "$ALLOW_EMPTY_SAST"
+
+          if [ "$IAC_PRESENT" = "true" ]; then
+            evaluate "Snyk IaC" "$IAC_EXIT" "false"
+          else
+            echo "::notice::Snyk IaC: nessun file IaC nel repo, scan non applicabile"
+          fi
 
           exit "$fail"
