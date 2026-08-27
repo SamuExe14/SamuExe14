@@ -93,6 +93,38 @@ jobs:
           set -e
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
 
+            # DIAGNOSTICA TEMPORANEA — rimuovere dopo la validazione del controllo.
+      # Ri-esegue il SAST senza soglia per capire se i finding esistono
+      # ma vengono filtrati, oppure se non esistono affatto.
+      - name: SAST diagnostic (no threshold)
+        if: always()
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          set +e
+          snyk code test --severity-threshold=low \
+            --sarif-file-output=diag-code.sarif
+          echo "exit code (threshold=low): $?"
+          set -e
+
+          if [ ! -f diag-code.sarif ]; then
+            echo "::warning::Nessun SARIF prodotto: Snyk Code non ha analizzato alcun file"
+            exit 0
+          fi
+
+          echo "--- File analizzati ---"
+          jq -r '[.runs[].results[].locations[].physicalLocation.artifactLocation.uri]
+                 | unique | .[]' diag-code.sarif
+
+          echo "--- Finding per livello (error=high, warning=medium, note=low) ---"
+          jq -r '[.runs[].results[].level] | group_by(.)
+                 | map("\(.[0]): \(length)") | .[]' diag-code.sarif
+
+          echo "--- Dettaglio ---"
+          jq -r '.runs[].results[]
+                 | "\(.level)\t\(.ruleId)\t\(.locations[0].physicalLocation.artifactLocation.uri):\(.locations[0].physicalLocation.region.startLine)"' \
+                 diag-code.sarif
+      
       - name: Snyk IaC
         id: iac
         if: steps.detect.outputs.has_iac == 'true'
