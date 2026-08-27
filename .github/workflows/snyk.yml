@@ -59,23 +59,6 @@ jobs:
             --severity-threshold=high \
             --sarif-file-output=snyk-code.sarif
 
-      # IaC — rimuovere se il repo non contiene Terraform/K8s/CFN
-      - name: Snyk IaC
-        continue-on-error: true
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: |
-          snyk iac test . \
-            --severity-threshold=high \
-            --sarif-file-output=snyk-iac.sarif || true
-
-      # - name: Upload SARIF
-      #   if: always()
-      #   uses: github/codeql-action/upload-sarif@v3
-      #   with:
-      #     sarif_file: .
-      #     category: snyk
-
       # Snapshot del progetto in Snyk: solo dal branch di default,
       # altrimenti si popola la dashboard con un progetto per feature branch
       - name: Snyk Monitor
@@ -98,3 +81,74 @@ jobs:
             [ "$n" -gt 0 ] && found=1
           done
           exit "$found"
+        
+      - name: Snyk Open Source (SCA)
+        id: oss
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          set +e
+          snyk test --all-projects --severity-threshold=high \
+            --sarif-file-output=snyk-oss.sarif
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Snyk Code (SAST)
+        id: sast
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          set +e
+          snyk code test --severity-threshold=high \
+            --sarif-file-output=snyk-code.sarif
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Snyk IaC
+        id: iac
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          set +e
+          snyk iac test . --severity-threshold=high \
+            --sarif-file-output=snyk-iac.sarif
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Enforce policy (fail-closed)
+        if: always()
+        env:
+          OSS_EXIT:  ${{ steps.oss.outputs.exit_code }}
+          SAST_EXIT: ${{ steps.sast.outputs.exit_code }}
+          IAC_EXIT:  ${{ steps.iac.outputs.exit_code }}
+        run: |
+          set -uo pipefail
+          fail=0
+
+          # Semantica exit code Snyk CLI:
+          #   0 = nessun issue | 1 = issue trovati
+          #   2 = errore CLI/auth/rete  -> BLOCCANTE (scan non attendibile)
+          #   3 = nessun progetto supportato -> tollerato solo se dichiarato
+          evaluate() {
+            local name="$1" code="$2" allow_empty="$3"
+            case "$code" in
+              0) echo "::notice::${name}: nessun finding >= high" ;;
+              1) echo "::error::${name}: finding >= high presenti"; fail=1 ;;
+              2) echo "::error::${name}: errore di esecuzione (exit 2) - scan NON valido"; fail=1 ;;
+              3)
+                if [ "$allow_empty" = "true" ]; then
+                  echo "::warning::${name}: nessun target supportato (atteso)"
+                else
+                  echo "::error::${name}: nessun target supportato - scan NON eseguito"; fail=1
+                fi
+                ;;
+              *) echo "::error::${name}: exit code inatteso ${code}"; fail=1 ;;
+            esac
+          }
+
+          # ADATTARE: metti "false" appena il repo contiene quel tipo di target.
+          evaluate "Snyk OSS"  "$OSS_EXIT"  "false"
+          evaluate "Snyk Code" "$SAST_EXIT" "false"
+          evaluate "Snyk IaC"  "$IAC_EXIT"  "true"
+
+          exit "$fail"
