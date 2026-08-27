@@ -1,0 +1,100 @@
+name: Snyk Security
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+  schedule:
+    # nuove CVE su dipendenze già in tree: serve uno scan anche senza commit
+    - cron: '0 3 * * 1'
+
+# default deny: nessun permesso implicito sul GITHUB_TOKEN
+permissions: {}
+
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write   # solo per l'upload SARIF in Code Scanning
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # --- ADATTARE: toolchain del progetto ---
+      - name: Setup runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # --ignore-scripts: evita esecuzione di lifecycle script di dipendenze
+      # non fidate sul runner. Rimuovere solo se il build lo richiede.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+      # ----------------------------------------
+
+      - name: Setup Snyk CLI
+        uses: snyk/actions/setup@master
+
+      # SCA: dipendenze dirette e transitive
+      - name: Snyk Open Source
+        continue-on-error: true      # il gating è nello step finale
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk test \
+            --all-projects \
+            --severity-threshold=high \
+            --sarif-file-output=snyk-oss.sarif
+
+      # SAST sul codice first-party
+      - name: Snyk Code (SAST)
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk code test \
+            --severity-threshold=high \
+            --sarif-file-output=snyk-code.sarif
+
+      # IaC — rimuovere se il repo non contiene Terraform/K8s/CFN
+      - name: Snyk IaC
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk iac test . \
+            --severity-threshold=high \
+            --sarif-file-output=snyk-iac.sarif || true
+
+      # - name: Upload SARIF
+      #   if: always()
+      #   uses: github/codeql-action/upload-sarif@v3
+      #   with:
+      #     sarif_file: .
+      #     category: snyk
+
+      # Snapshot del progetto in Snyk: solo dal branch di default,
+      # altrimenti si popola la dashboard con un progetto per feature branch
+      - name: Snyk Monitor
+        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: snyk monitor --all-projects
+
+      # Gating esplicito: fallisce la pipeline se sono stati trovati
+      # finding >= high in uno qualsiasi degli scan
+      - name: Enforce policy
+        if: always()
+        run: |
+          set -euo pipefail
+          found=0
+          for f in snyk-*.sarif; do
+            [ -e "$f" ] || continue
+            n=$(jq '[.runs[].results[]?] | length' "$f")
+            echo "$f: $n finding"
+            [ "$n" -gt 0 ] && found=1
+          done
+          exit "$found"
