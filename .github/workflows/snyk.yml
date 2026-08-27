@@ -85,6 +85,8 @@ jobs:
         id: sast
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          # Org ID (UUID), non lo slug. Snyk UI -> Settings dell'Org -> Organization ID.
+          SNYK_CFG_ORG: ${{ vars.SNYK_ORG_ID }}
         run: |
           set +e
           snyk code test --severity-threshold=high \
